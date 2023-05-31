@@ -1,5 +1,5 @@
 demoFL
-=================
+======
 
 
 This document outlines the step-by-step workflow for the analysis of follicular lymphoma using the `dds_analysis` package. Each step is described along with the corresponding bash code.
@@ -14,7 +14,7 @@ The `map_block2genome` module from the `dds_analysis` package is used to map mut
    dds_analysis map_block2genome --in_sortedBlock_file $IN_BLOCK_FILE --in_genomicRegion_file $GENOMIC_REGION_FILE --in_reference_genome $REFERENCE_GENOME_FILE --out_folder $OUTPUT_FOLDER
 
 Step 2: Map mutation blocks to chromatin segments
-------------------------------------------------
+-------------------------------------------------
 
 The `map_block2chromSegment` module from the `dds_analysis` package is used to map mutation blocks to chromatin segments.
 
@@ -41,7 +41,7 @@ The `find_geneExp4block` module from the `dds_analysis` package is used to combi
    dds_analysis find_geneExp4block --in_blocks_genome_folder $BLOCKS_GENOME_FOLDER --in_sortedBlock_file $IN_BLOCK_FILE --in_de_genes_file $DE_GENES_FILE --in_feature_list $FEATURE_LIST --out_folder $OUTPUT_FOLDER
 
 Step 5: Find patient IDs for each mutation block
------------------------------------------------
+------------------------------------------------
 
 The `find_block_patientID` module from the `dds_analysis` package is used to find patient IDs associated with each mutation block.
 
@@ -68,7 +68,7 @@ The `filter_blocks` module from the `dds_analysis` package is used to filter blo
    dds_analysis filter_blocks --in_combined_dmr_deg_block_file $COMBINED_DMR_DEG_BLOCK_FILE
 
 Step 8: Collect unique gene names from predicted blocks after filtering
-----------------------------------------------------------------------
+-----------------------------------------------------------------------
 
 The `collect_gene_names4blocks` module from the `dds_analysis` package is used to collect unique gene names from predicted blocks.
 
@@ -77,7 +77,7 @@ The `collect_gene_names4blocks` module from the `dds_analysis` package is used t
    dds_analysis collect_gene_names4blocks --in_filtered_block_file $FILTERED_BLOCK_FILE --out_gene_file $GENE_FILE
 
 Step 9: Perform gene expression analysis for selected genes
-----------------------------------------------------------
+-----------------------------------------------------------
 
 The `gene_expression_analysis` module from the `dds_analysis` package is used to perform gene expression analysis for selected genes.
 
@@ -86,7 +86,7 @@ The `gene_expression_analysis` module from the `dds_analysis` package is used to
    dds_analysis gene_expression_analysis --in_gene_file $GENE_FILE --in_expression_file $EXPRESSION_FILE --out_folder $OUTPUT_FOLDER
 
 Step 10: Perform functional enrichment analysis for selected genes
-----------------------------------------------------------------
+------------------------------------------------------------------
 
 The `functional_enrichment_analysis` module from the `dds_analysis` package is used to perform functional enrichment analysis for selected genes.
 
