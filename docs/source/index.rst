@@ -59,5 +59,9 @@ Contents:
    content/plot_tss_enhancer_mrs
    content/filterDEG4bpb3
    content/preprocess
+   content/demoFL
+   content/demoHAP1
+   content/demoRAT
+   content/demoFLMR
 
 
