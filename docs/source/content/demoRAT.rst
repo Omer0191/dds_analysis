@@ -111,9 +111,10 @@ Step 3: Plotting selected target gene and DMR associations
 __________________________________________________________
 
 .. code-block:: bash
-gene_exp_file=${IN_DEG_PATH}'/Adrenal1vsAdrenal2_DEG_genes_zscores.tsv'
-OUT_PATH='../../data/rat_data/out_data/'
 
-dds_analysis plot_mr_vs_exp -inGeneEXPfile ${gene_exp_file}  \
-      -dpi 300 -inMRfolder ${OUT_PATH}/out4dmr_in_deg_tss_5dist \
-      -sampleName sample_name4replace.tsv -expTAB -inGene 'Tab2' -inMR 'chr1:mr16' -wtStr '_Ctrl' -output_path ${OUT_PATH}
+    gene_exp_file=${IN_DEG_PATH}'/Adrenal1vsAdrenal2_DEG_genes_zscores.tsv'
+    OUT_PATH='../../data/rat_data/out_data/'
+
+    dds_analysis plot_mr_vs_exp -inGeneEXPfile ${gene_exp_file}  \
+          -dpi 300 -inMRfolder ${OUT_PATH}/out4dmr_in_deg_tss_5dist \
+          -sampleName sample_name4replace.tsv -expTAB -inGene 'Tab2' -inMR 'chr1:mr16' -wtStr '_Ctrl' -output_path ${OUT_PATH}
