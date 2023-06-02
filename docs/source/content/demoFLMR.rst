@@ -499,7 +499,7 @@ This script is used to provide a demo for performing dds_analysis dTarget_methy_
         -enc_file ${OUT_PATH}'/distance_region_'${number_of_samples}'sampling.csv' \
         -is_negative 2 -genes 'BCL2,KIAA1468,AKAP17A' -mr_folder ${OUT_PATH}/out4dmr_in_deg_tss_5dist/ \
         -folder_name '' --dmr_file_not_compressed \
-        -gX 2000 -gY 1000 -wtStr 'gcb_' \
+        -gX 2000 -gY 1000 -w 'gcb_' \
         -out_folder ${OUT_PATH}/plot_tss_enhancer_mrs
     echo "Done with plot_tss_enhancer_mrs"
 
