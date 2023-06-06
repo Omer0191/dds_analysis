@@ -118,3 +118,6 @@ The final step involves plotting the average methylation pattern for the selecte
          -output_file ${OUT_PATH}/plot_avg_methylation_pattern_dTargetGenes.pdf
 
    echo "Plotting average methylation pattern - Done"
+
+.. image:: 5mC_Enhancer_X2000_Y1000_G2000_binsize100_sigma50_neg_DMRs_2023-05-24.jpg
+   :alt: Enhancer vs Methylation level
