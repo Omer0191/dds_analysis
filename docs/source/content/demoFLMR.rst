@@ -21,12 +21,12 @@ Please note that the script assumes certain file paths and data organization. Ma
 
 Here we assume
 
-1. mutation blocks overlapping to enhancers and differential methylatoin regions are done (e.g., demo7 of bpb3 package)
+1. mutation blocks overlapping to enhancers and differential methylation regions are done (e.g., demo7 of bpb3 package)
 2. and differential methylated regions (DMR) are already done by dmr_analysis
 
 This script is similar to demo1 (e.g., integrated analysis of DEG, DMR, mutation blocks, and TAD - in paper https://pubmed.ncbi.nlm.nih.gov/35495111/)
-But we only consider mutation blocks that are overlapping with enhancers and differential DNA methylatioin regions
-The output folders: out_chromSegment, out_expresssion, out_genome, out_dds may need to be created manually!!
+But we only consider mutation blocks that are overlapping with enhancers and differential DNA methylation regions
+The output folders: out_chromSegment, out_expression, out_genome, out_dds may need to be created manually!!
 
 .. code-block:: bash
 
@@ -35,7 +35,7 @@ The output folders: out_chromSegment, out_expresssion, out_genome, out_dds may n
     # path of input data folder
     IN_FOLDER='../../data/fl_mr/in_data/'
 
-    #Path of mutation blocks and block summarys file exported by bpb3 package
+    #Path of mutation blocks and block summary file exported by bpb3 package
     IN_BLOCKS=${IN_FOLDER}'/bpb3_demo7_mr_enhancers/out/mussd_blocks/'
     IN_BLOCK_SUMMARY='blocks_summary.tsv'
 
@@ -45,7 +45,7 @@ The output folders: out_chromSegment, out_expresssion, out_genome, out_dds may n
     #Other INPUT PATH and files et al
     #Convert bpb3 mutation blocks summary file to a bed format file with positions
     dds_analysis bpb3summary2bed_format --in_block_summary_file ${IN_BLOCKS}/$IN_BLOCK_SUMMARY
-    echo  ${IN_BLOCKS}'/'${IN_BLOCK_SUMMAR}
+    echo  ${IN_BLOCKS}'/'${IN_BLOCK_SUMMARY}
     echo "preprocess_data - Done"
 
     replace='_block_position.bed'
@@ -57,14 +57,14 @@ The output folders: out_chromSegment, out_expresssion, out_genome, out_dds may n
     IN_LIST_REGIONS='list_region_files.txt_gencode'
     IN_GENOME_refFlat=${IN_GENOME_REGIONS}'/data/gencode.v19.annotation_gene.ref_clean_sorted.bed'
 
-    #path of genome lib information files such as TAD,  chromatin segmentant, and genome files et al
+    #path of genome lib information files such as TAD,  chromatin segment, and genome files et al
     IN_GENOME_LIB='../../data/'
     #path of chromatin segment files that will be used to intersect with mutation blocks
     IN_CHROMSEG=${IN_GENOME_LIB}'/chromSegment/hg19/'
 
     #path of TAD information that will be used to map mutation blocks
     IN_TAD=${IN_GENOME_LIB}'/in_tad/'
-    #path to common TAD positions accross 5 human cell lines
+    #path to common TAD positions across 5 human cell lines
     IN_TAD_INFO=${IN_TAD}'/Table4_TAD_annotations_sorted_chr.bed'
     #pnath to common TAD boundary position among 5 human cell lines
     IN_TAD_BOUNDARY=${IN_TAD}'/Table1_common_boundaries_merged_sorted_chr.bed'
@@ -87,7 +87,7 @@ The output folders: out_chromSegment, out_expresssion, out_genome, out_dds may n
     OUT_GENOME=${OUT_FOLDER}'/out_genome/'
     #path for exporting mutation blocks mapped to chromatin segmentations
     OUT_CHROMSEG=${OUT_FOLDER}'/out_chromSegment/'
-    #path for exported mutation blocks assoicated with DEGs
+    #path for exported mutation blocks associated with DEGs
     OUT_EXPRESS=${OUT_FOLDER}'/out_expression/'
     #path for final results
     OUT_FINAL=${OUT_FOLDER}/'out_DmrDeg2block'
@@ -95,7 +95,7 @@ The output folders: out_chromSegment, out_expresssion, out_genome, out_dds may n
 
 Step 1:
 _______
-Map mutation block to predifined genomic regions
+Map mutation block to predefined genomic regions
 
 .. code-block:: bash
 
@@ -178,7 +178,7 @@ This one does not test because it is too slow
     echo ""
 
     #This file exported from earlier step: map_block2dmr
-    #this file name need be manually inpute
+    #this file name need be manually input
     #IN_BLOCK_DMR='blocks_summary_block_position_0flank_0.7Proba_2blocks_2blocks2mr_2blocks2dmr'
 
 Step 6:
@@ -222,12 +222,11 @@ Collect unique genes name from predicted blocks with DMR and DEG
     dds_analysis collect_gene_names4blocks --in_filtered_blockGene_file $OUT_FINAL/${IN_BLOCK_DMR_NAME}_deg_info_filtered_DMR_or_DEG.tsv
     echo collect_gene_names2blocks - Done
 
-    #if no TAD information availble then we can skip below two lines of check_block_gene_inTAD
-    #but use the exported file from collect_gene_names4blocks for step 10 gene ranking !!
+If no TAD information available then we can skip below two lines of check_block_gene_inTAD but use the exported file from collect_gene_names4blocks for step 10 gene ranking !!
 
 Step 9:
 -------
-Check whether the block/gene/ in the same TAD or boundariy
+Check whether the block/gene/ in the same TAD or boundary
 
 .. code-block:: bash
 
@@ -256,7 +255,6 @@ If there is not a TAD information available for the filtering, then we can use  
            --in_DEG_file ${IN_EXPRESS} \
            --in_DMR_file ${IN_DMR} -inCutoff 0.5
     echo geneRanking - Done
-    echo ""
 
 
 Step 11:
@@ -299,9 +297,9 @@ in_tss_file_mr:	DMRs mapped to TSS regions
 in_dist_file:		DMRs mapped to 5distance regions
 in_deg_file:		differential expression file (bpb3 output format)
 out_folder:		output file path
-tss_file:		a predfined TSS regions for further analysis
+tss_file:		a predefined TSS regions for further analysis
 full_mr_file:		a list of all ranked dmr from dmr_analysis
-in_genom_file:		a bed formated enhancer postion file
+in_genome_file:		a bed formatted enhancer position file
 gene_col_name:		column name of gene ID/name
 
 .. code-block:: bash
@@ -364,7 +362,7 @@ This script is used to provide a demo for performing dds_analysis dTarget_methy_
             --output_file_folder ${OUT_PATH}/out4dmr_in_deg_tss_5dist \
             --input_file_format 0 \
             --number_of_processes 10 --input_file ${OUT_PATH}/uqdmr_regions_in_deg_tss_5dist${in_data_str}.bed -wtStr 'gcb_'
-    echo "Export data of DMRs overlapping to TSS or 5distnace - Done "
+    echo "Export data of DMRs overlapping to TSS or 5distance - Done "
     echo ""
 
     #2. export data of mrs that are not in tss and enhancer
@@ -399,7 +397,7 @@ This script is used to provide a demo for performing dds_analysis dTarget_methy_
     # unique gene to DMR file prepared by dds_analysis preprocess
     gene_mr_file=${OUT_PATH}/uqGeneDmr_regions_in_deg_tss${in_data_str}.bed
 
-    #prepare a tab delimiated gene expression file in which the group mean values and rratio are added.
+    #prepare a tab delimited gene expression file in which the group mean values and rratio are added.
     #this file will be used to plot average methylation levels of selected gene in TSS and Enhancer regions
     #After inputting a DEG file  exported by bpb3 differential_expression, it exports a tab delimiated file
     #by adding three columns values of the group mean and rratio.
@@ -480,18 +478,28 @@ This script is used to provide a demo for performing dds_analysis dTarget_methy_
     #end dTarget run
 
 
-    #20.
-    #7. plot selected target gene and DMR associatoins
-    echo ""
+Plotting:
+_________
+
+Plot selected target gene and DMR associations
+
+.. code-block:: bash
+
     echo ${gene_exp_file}
     echo  ${OUT_PATH}/out4dmr_in_deg_tss_5dist
+
     dds_analysis plot_mr_vs_exp -inGeneEXPfile ${gene_exp_file}  \
             -dpi 300 -inMRfolder ${OUT_PATH}/out4dmr_in_deg_tss_5dist \
         -expTAB -inGene 'BCL2' -inMR 'chr18:mr639' -wtStr 'gcb_' -output_path ${OUT_PATH}
-    echo "Done with plot_vs_exp "
-    echo ""
 
-    #8. plot avearge methylation in TSS and enhancer regions for selected target gene
+
+
+Plotting:
+_________
+ Plot average methylation in TSS and enhancer regions for selected target gene
+
+.. code-block:: bash
+
     dds_analysis plot_tss_enhancer_mrs \
         -exp_file $IN_DEG_FILE \
         -dmr_file ${IN_MR_PATH}/2_chroms_all_mr_data_range_dmrRanking.bed  \
@@ -499,8 +507,10 @@ This script is used to provide a demo for performing dds_analysis dTarget_methy_
         -enc_file ${OUT_PATH}'/distance_region_'${number_of_samples}'sampling.csv' \
         -is_negative 2 -genes 'BCL2,KIAA1468,AKAP17A' -mr_folder ${OUT_PATH}/out4dmr_in_deg_tss_5dist/ \
         -folder_name '' --dmr_file_not_compressed \
-        -gX 2000 -gY 1000 -w 'gcb_' \
+        -gX 2000 -gY 1000 -wtStr 'gcb_' \
         -out_folder ${OUT_PATH}/plot_tss_enhancer_mrs
     echo "Done with plot_tss_enhancer_mrs"
 
 
+.. image:: BCL2_chr18_mr639.jpg
+    :alt: BCL2 vs Chr18:mr639

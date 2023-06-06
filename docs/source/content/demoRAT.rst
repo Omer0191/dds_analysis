@@ -118,3 +118,6 @@ __________________________________________________________
     dds_analysis plot_mr_vs_exp -inGeneEXPfile ${gene_exp_file}  \
           -dpi 300 -inMRfolder ${OUT_PATH}/out4dmr_in_deg_tss_5dist \
           -sampleName sample_name4replace.tsv -expTAB -inGene 'Tab2' -inMR 'chr1:mr16' -wtStr '_Ctrl' -output_path ${OUT_PATH}
+
+.. image:: Tab2_chr1_mr16.jpg
+   :alt: chr1:mr16 vs tab2
