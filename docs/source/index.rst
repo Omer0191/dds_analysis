@@ -1,3 +1,9 @@
+.. image:: oslo-universitetssykehus-ous-logo.png
+
+.. image:: uio_segl_a.png
+
+.. image:: helse-sor-ost.png
+
 =================
 DDS-Analysis Tool
 =================
