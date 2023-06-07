@@ -2,7 +2,7 @@
 
 .. image:: uio_segl_a.png
 
-.. image:: helse-sor-ost.png
+.. image:: helse-sor-ost.jpg
 
 =================
 DDS-Analysis Tool
