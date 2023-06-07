@@ -23,6 +23,37 @@ The `dds_analysis preprocess` step prepares the input files for further analysis
 
    echo "To find DMR regions that are overlapping with TSS or 5distance regions of DEG - and preprocess Done"
 
+Set paths:
+----------
+
+ .. code-block:: bash
+    #main path of input data
+    IN_DATA_PATH='../../data/hap1_cell/in_data/final_demo_data/hap1_cell/'
+
+    #path of DMR results from dmr_analysis
+    IN_MR_PATH=${IN_DATA_PATH}'/out_data/DMR_CpG_context/'
+
+    #path of DEG results from bpb3
+    IN_DEG_PATH=${IN_DATA_PATH}'/in_data/DEG/'
+
+    #DEG file name from bpb3 differential_analysis, the original DEF file from bpb3 that was used to convert Zscores in dds_analysis preprocess
+    IN_DEG_FILE='HAP1_P1_vs_HAP1_KO1_differentially_expressed_genes_min0Fd_min0RPKM.txt '
+    in_data_str='_hap1'
+
+    #path to output data
+    OUT_PATH='../../data/hap1_cell/out_data/'
+
+    #path to exported MRs that are not located in TSS or enhancer regions
+    FILE_FOLD=${OUT_PATH}/out4mr_not_in_tss_enhancer
+    #file name for background sample list that contain all MRs not located in TSS or enhancers
+    BACK_FILE=${OUT_PATH}/background_samples_list.tsv
+
+    #whether to skip below two steps in the pipeline
+    is_run_dmr_export=1 # 1 for exporting, other values for skipping this step
+    is_run_dtarget=1    # 1 for run dTarget prediction , other values for skipping this step
+
+
+
 Step 2: DMR data export
 _______________________
 The DMR data export step involves exporting DMR data that is either located in TSS or 5'distance regions. It uses the `dmr_exportData` command from the `dmr_analysis` module. Here is the code:

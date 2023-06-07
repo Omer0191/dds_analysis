@@ -22,10 +22,10 @@ The first step involves preparing files for `dds_analysis` by running the `prepr
 
    echo "To find DMR regions that are overlapping with TSS or 5distance regions of DEG - and preprocess Done"
 
-Step 2: Running dds_analysis dTarget_methy_vs_express
-_____________________________________________________
+Step 2: Export data:
+____________________
 
-The second step involves running the `dds_analysis dTarget_methy_vs_express` command to predict putative target genes for DMRs based on their associations from either TSS or 5'distance regions. Here is the code:
+The second step involves running the `dmr_analysis dmr_exportData` command to export relevant methylation region data.
 
 .. code-block:: bash
 
@@ -77,6 +77,12 @@ The second step involves running the `dds_analysis dTarget_methy_vs_express` com
       fi
    fi
 
+Step 3: Running dds_analysis dTarget_methy_vs_express
+_____________________________________________________
+The third step involves running the `dds_analysis dTarget_methy_vs_express` command to predict putative target genes for DMRs based on their associations from either TSS or 5'distance regions. Here is the code:
+
+.. code-block:: bash
+
    # Run dTarget_methy_vs_express for predicting target genes
    if [ $is_run_dtarget == 1 ]; then
       gene_mr_file=${OUT_PATH}'/uqGeneDmr_regions_in_deg_tss'${in_data_str}'.bed'
@@ -93,7 +99,6 @@ The second step involves running the `dds_analysis dTarget_methy_vs_express` com
             -pathDepth 1 -inBackgroundList $in_background_mr_file -cutoff 0.05 -totalSamples $number_of_samples -numOfprocesses 10
 
       echo "Done with TSS target gene prediction"
-      echo ""
 
       # Test target gene and DMR associations from 5'distance regions
       gene_mr_file=${OUT_PATH}'/uqGeneDmr_regions_in_deg_5dist'${in_data_str}'_overlap_enhancer.bed'
@@ -104,7 +109,6 @@ The second step involves running the `dds_analysis dTarget_methy_vs_express` com
             -pathDepth 1 -inBackgroundList $in_background_mr_file -cutoff 0.01 -totalSamples $number_of_samples -numOfprocesses 10
 
       echo "Done with 5'distance target gene prediction"
-      echo ""
    fi
 
 Step 3: Plotting selected target gene and DMR associations

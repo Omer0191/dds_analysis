@@ -4,7 +4,7 @@ demoFLMR
 
 Step 0:
 -------
-Generate predefined genomic regions files based on genCode annotation
+Generate predefined genomic regions files based on gene Code annotation:
 
 .. code-block:: bash
 
