@@ -7,7 +7,7 @@
 =================
 DDS-Analysis Tool
 =================
-An integrated data analysis pipeline by considering both Differential Methylation Region (DMR) and Differential Expression Gene (DEG) in SNP analysis. This package depends on some functions from the bpb3 package!
+An integrated data analysis pipeline by considering both Differential Methylation Region (DMR) and Differentially Expressed Genes (DEG) in SNP analysis. This package depends on some functions from the bpb3 package!
 
 **positional arguments**:
 - **task**: Pipeline task to run
