@@ -1,13 +1,8 @@
-
 find_geneExp4block
 ==================
 
-
 .. contents::
     :local:
-
-
-:find_geneExp4block:
 
 Find differential gene expression for mutation blocks.
 

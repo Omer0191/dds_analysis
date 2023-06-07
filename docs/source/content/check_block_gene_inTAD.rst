@@ -6,8 +6,6 @@ check_block_gene_inTAD
 .. contents::
     :local:
 
-:check_block_gene_inTAD:
-
 Check whether mutation blocks and genes are in the same TAD or TAD boundary.
 
 Optional Arguments:

@@ -6,9 +6,6 @@ map_block2genome
 .. contents::
     :local:
 
-
-
-
 Map mutation blocks to genomic regions.
 
 Optional Arguments:

@@ -1,12 +1,9 @@
-
 bpb3summary2bed_format
 ======================
 
 
 .. contents::
     :local:
-
-
 
 Usage: `dds_analysis bpb3summary2bed_format`
 
