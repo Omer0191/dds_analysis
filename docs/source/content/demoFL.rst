@@ -120,6 +120,7 @@ Predicted DMRs by dmr_analysis file is also used as input to this demo which loo
 Head of differentially_expressed_genes.txt is following:
 
 .. code-block:: bash
+
     A1BG	0.006841601076234209	1.03562166970378	1.0044718601447777	0.7682775946401803	0.9032574892066986	0.9586228797372297	0.8600161280044952	1.1129622825040923	0.727123126962006	0.7943658809104911	0.9030097652361022	0.7743942653504368	0.6272536039977595	0.7647032561463141	0.7540873544744898
     A2M	7.466186411474e-08	1.7068617121006318	1.5722363221730744	1.7241477215681602	2.512746238429057	1.192179193233052	1.9616053111713239	2.0831787155792267	1.3698921594123463	1.8944650163311454	2.049522066949797	0.026853332696881425	0.11955544285228693	0.1306156621631196	0.02935698777439702
     A2ML1	0.013243211051909093	0.0038341538116092736	0.005223240799061258	0.0035200158291957538	0.006688701271386327	0.01231806318166027	0.006651830866222021	0.01240860696633966	0.006867506126330923	0.0028447826724574037	0.004404865042883453	0.09306972144679593	0.09312915276803117	0.07871043255363304	0.03729749320155993
@@ -219,6 +220,17 @@ The `check_block_gene_inTAD` module from the `dds_analysis` package is used to p
             --in_TAD_boundary_file ${IN_TAD_BOUNDARY}
     echo 9b. check_block_gene_inTAD - Done for selecting blocks with either DMR or DEG
 
+Here is list of genes that exist in TAD:
+
+.. code-block:: bash
+    gene_name	patients	gene_type	block_id	new_mr_sites	patient_id	enhancers	TAD2gene	Boundary2gene	TAD2block	Boundary2block	isTAD
+    BCL2	9	TSS	block_1_18_60987833_60988302	chr18:mr621	patient_0,patient_1,patient_2,patient_4,patient_5,patient_6,patient_7,patient_8,patient_10	nan	18:60675000:61075000:Low-active	na	18:60675000:61075000:Low-active	na	1.0
+    BCL2	8	TSS	block_0_18_60986372_60987028	chr18:mr621	patient_0,patient_1,patient_4,patient_5,patient_6,patient_7,patient_8,patient_10	enhancer	18:60675000:61075000:Low-active	na	18:60675000:61075000:Low-active	na	1.0
+    SERPINB8	9	5dist	block_1_18_60987833_60988302	chr18:mr621	patient_0,patient_1,patient_2,patient_4,patient_5,patient_6,patient_7,patient_8,patient_10	nan	18:61650000:66375000:Low	18:61575000:61650000:1	18:60675000:61075000:Low-active	na	0.0
+    SERPINB2	9	5dist	block_1_18_60987833_60988302	chr18:mr621	patient_0,patient_1,patient_2,patient_4,patient_5,patient_6,patient_7,patient_8,patient_10	nan	18:61150000:61575000:Low	na	18:60675000:61075000:Low-active	na	0.0
+    SERPINB5	9	5dist	block_1_18_60987833_60988302	chr18:mr621	patient_0,patient_1,patient_2,patient_4,patient_5,patient_6,patient_7,patient_8,patient_10	nan	18:61150000:61575000:Low	18:61075000:61150000:1	18:60675000:61075000:Low-active	na	0.0
+    SERPINB12	9	5dist	block_1_18_60987833_60988302	chr18:mr621	patient_0,patient_1,patient_2,patient_4,patient_5,patient_6,patient_7,patient_8,patient_10	nan	18:61150000:61575000:Low	na	18:60675000:61075000:Low-active	na	0.0
+
 
 Step 10: Rank gene list:
 ------------------------
@@ -233,6 +245,14 @@ tss=4, enhancer=3, tes=gene=2, 5dist=1
        --in_DMR_file ${IN_DMR} -inCutoff 0.5
     echo 10. geneRanking - Done
 
+
+Here is the output of gene ranking of unique gene:
+
+.. code-block:: bash
+
+    gene_name	gene_type	block_id	new_mr_sites	patients	isTAD	enhancers	patient_id
+    BCL2	TSS~TSS	block_1_18_60987833_60988302~block_0_18_60986372_60987028	chr18:mr621~chr18:mr621	9~8	1.0~1.0	nan~enhancer	patient_0,patient_1,patient_2,patient_4,patient_5,patient_6,patient_7,patient_8,patient_10~patient_0,patient_1,patient_4,patient_5,patient_6,patient_7,patient_8,patient_10
+
 Step 11: Find enhancer target genes
 -----------------------------------
 
@@ -240,7 +260,7 @@ The `find_enhancer_target_genes` module from the `dds_analysis` package is used 
 
 .. code-block:: bash
 
-    search_dir=`find ${OUT_FINAL} -name *_gt_* -type f `
+    search_dir='find ${OUT_FINAL} -name *_gt_* -type f '
 
     echo "Find results file from below list: "
     for entry in ${search_dir}
@@ -258,3 +278,8 @@ The `find_enhancer_target_genes` module from the `dds_analysis` package is used 
 
    dds_analysis find_enhancer_target_genes --in_enhancer_folder $ENHANCER_FOLDER --in_dds_file $DDS_FILE --in_gene_file $GENE_FILE --out_folder $OUTPUT_FOLDER
 
+Following is the output for gene "BCL2" with its enhancer region which is predicted for follicular lymphoma.
+
+.. code-block:: bash
+
+    chr18	60986372	60987028	block_0_18_60986372_60987028	chr18:mr621	TSS	8	enhancer
