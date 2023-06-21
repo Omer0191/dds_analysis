@@ -286,15 +286,4 @@ Following is the output for gene "BCL2" with its enhancer region which is predic
     chr18	60986372	60987028	block_0_18_60986372_60987028	chr18:mr621	TSS	8	enhancer
 
 
-This step involves plotting the associations between selected target genes and DMRs based on gene expression profiles. Here is the code:
-
-.. code-block:: bash
-
-    echo ${gene_exp_file}
-    echo  ${OUT_PATH}/out4dmr_in_deg_tss_5dist
-    dds_analysis plot_mr_vs_exp -inGeneEXPfile ${gene_exp_file}  \
-            -dpi 300 -inMRfolder ${OUT_PATH}/out4dmr_in_deg_tss_5dist \
-        -expTAB -inGene 'TRIM32' -inMR 'chr9:mr104' -wtStr 'HAP1_P' -output_path ${OUT_PATH}
-    echo "Done with plot_mr_vs_exp "
-
 
