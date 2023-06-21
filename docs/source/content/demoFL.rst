@@ -298,21 +298,3 @@ This step involves plotting the associations between selected target genes and D
     echo "Done with plot_mr_vs_exp "
 
 
-Step 7: Plotting average methylation pattern
-____________________________________________
-
-The final step involves plotting the average methylation in TSS and enhancer regions for selected target gene. Here is the code:
-
-.. code-block:: bash
-
-    dds_analysis plot_tss_enhancer_mrs \
-	-exp_file $IN_DEG_FILE \
-	-dmr_file ${IN_MR_PATH}/3_chroms_all_mr_data_range_dmrRanking.bed  \
-	-tss_file ${OUT_PATH}/tss_region_10sampling.csv  \
-	-enc_file ${OUT_PATH}/distance_region_10sampling.csv \
-	-is_negative 1 -genes 'MRPS25,PLCL2,TRIM32' -mr_folder ${OUT_PATH}/out4dmr_in_deg_tss_5dist/ \
-	-folder_name '' --dmr_file_not_compressed \
-	-gX 2000 -gY 1000 -wtStr 'HAP1_P_' \
-	-out_folder ${OUT_PATH}/plot_tss_enhancer_mrs
-
-    echo "Done with plot_tss_enhancer_mrs"
