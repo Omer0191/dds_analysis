@@ -285,5 +285,17 @@ Following is the output for gene "BCL2" with its enhancer region which is predic
 
     chr18	60986372	60987028	block_0_18_60986372_60987028	chr18:mr621	TSS	8	enhancer
 
+Step 12: Plot Expression Vs Methylation
+---------------------------------------
+Using scatter plot, we can see the realtion between differetially gene expression and methylation.
+
+.. code-block:: bash
+    dds_analysis plot_mr_vs_exp -inGeneEXPfile $IN_EXPRESS  \
+        -dpi 300 -inMRfolder '../../data/fl_12samples/out_data/out_exportData' \
+	 -inGene 'BCL2' -inMR 'chr18:mr621' -wtStr 'counts' -output_path $OUT_FOLDER -pathDepth 16
+
+Here as in demo we made a scatter plot for BCL2 gene and methylation region 'chr18:mr621'
 
 
+.. image:: BCL2_chr18_mr621.jpg
+    :alt: BCL2 vs Chr18:mr621
