@@ -290,6 +290,7 @@ Step 12: Plot Expression Vs Methylation
 Using scatter plot, we can see the realtion between differetially gene expression and methylation.
 
 .. code-block:: bash
+
     dds_analysis plot_mr_vs_exp -inGeneEXPfile $IN_EXPRESS  \
         -dpi 300 -inMRfolder '../../data/fl_12samples/out_data/out_exportData' \
 	 -inGene 'BCL2' -inMR 'chr18:mr621' -wtStr 'counts' -output_path $OUT_FOLDER -pathDepth 16
