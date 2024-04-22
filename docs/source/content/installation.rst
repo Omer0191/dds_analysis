@@ -10,11 +10,13 @@ Installation
 Download
 --------
 
-dds_analysis is written in Python. It can be installed and accessed from the command line and is available for both Linux and macOS operating systems. The package can be downloaded `here <https://github.com/dmr-analysis/dds-analysis/archive/refs/heads/master.zip>`_. Alternatively, you can use the following command:
+dds_analysis is written in Python. It can be installed and accessed from the command line and is available for both Linux and macOS operating systems. 
 
-.. code-block:: bash
+Please send email to Dr. Junbai Wang (junbai.wang@medisin.uio.no) for requesting a free download of DDS-analysis pacakge.
 
-   $ wget https://github.com/dmr-analysis/dds-analysis/archive/refs/heads/master.zip
+Please include your name, Institution/company name, Email of your institute or company (do not use gmail or yahoo email etc), and a brief description of the purpose for using packages.
+
+Please use the subject title "bpb3/dds request "  for your email.
 
 Install
 -------
