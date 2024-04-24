@@ -45,7 +45,7 @@ Tasks available for using:
 Contents:
 ---------
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
    source/content/installation
    source/content/bpb3summary2bed_format
