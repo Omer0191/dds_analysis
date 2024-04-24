@@ -14,7 +14,7 @@ dds_analysis is written in Python. It can be installed and accessed from the com
 
 Please send email to Dr. Junbai Wang (junbai.wang@medisin.uio.no) for requesting a free download of DDS-analysis pacakge.
 
-Remember include your name, Institution/company name, Email of your institute or company (do not use gmail or yahoo email etc), and a brief description of the purpose for using package with subject title "bpb3/dds request "  for your email.
+Remember to include your name, Institution/company name, Email of your institute or company (do not use gmail or yahoo email etc), and a brief description of the purpose for using package with subject title "bpb3/dds request "  for your email.
 
 Install
 -------
