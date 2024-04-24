@@ -47,10 +47,10 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
-   content/installation
-   content/bpb3summary2bed_format
-   content/map_block2genome
-   content/map_block2chromSegment
+   source/content/installation
+   source/content/bpb3summary2bed_format
+   source/content/map_block2genome
+   source/content/map_block2chromSegment
    source/content/map_block2dmr
    source/content/find_geneExp4block
    source/content/find_block_patientID
