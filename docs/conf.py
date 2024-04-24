@@ -47,9 +47,12 @@ language = 'Python'
 exclude_patterns = []
 
 
-
 extensions = [
-    'sphinx_rtd_theme',
+    'sphinx.ext.duration',
+    'sphinx.ext.doctest',
+    'sphinx.ext.autodoc',
+    'sphinx.ext.autosummary',
+    'sphinx.ext.intersphinx',
 ]
 
 # -- Options for HTML output -------------------------------------------------
